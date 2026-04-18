@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shinjin Bangladesh</title>
+
+    <!-- FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -104,26 +112,12 @@
     <section id="contact" class="contact">
       <h2>Contact Us</h2>
       <p>Phone: +880 1700-000000</p>
+      <p>Email: info@shinjin.com</p>
     </section>
 
     <!-- WHATSAPP -->
     <a href="https://wa.me/8801700000000" class="whatsapp">💬</a>
 
-    <!-- SCRIPT -->
-    <script>
-      let slides = document.querySelectorAll(".slide");
-      let current = 0;
-
-      setInterval(() => {
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
-      }, 4000);
-
-      function toggleMenu() {
-        document.getElementById("menu").classList.toggle("show");
-      }
-    </script>
     <!-- FOOTER -->
     <footer>
       <div class="footer-container">
@@ -149,5 +143,21 @@
 
       <p class="footer-bottom">© 2026 Shinjin Bangladesh</p>
     </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      let slides = document.querySelectorAll(".slide");
+      let current = 0;
+
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 4000);
+
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+      }
+    </script>
   </body>
 </html>
