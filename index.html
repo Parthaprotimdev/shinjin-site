@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shinjin Bangladesh</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <img src="logo.png" class="logo" />
+
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+      <nav id="menu">
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#service">Service</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="slide active" style="background-image: url('machine1.png')">
+        <div class="overlay">
+          <h1>Industrial Embroidery Machines</h1>
+          <p>Speed. Precision. Profit.</p>
+          <a href="#products" class="btn">Explore</a>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('machine2.png')">
+        <div class="overlay">
+          <h1>Multihead Machines</h1>
+          <p>Bulk Production Solution</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('machine3.png')">
+        <div class="overlay">
+          <h1>Laser Machines</h1>
+          <p>Cutting & Engraving</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+      <div>
+        <h2>10+</h2>
+        <p>Years Experience</p>
+      </div>
+      <div>
+        <h2>1000+</h2>
+        <p>Machines Sold</p>
+      </div>
+      <div>
+        <h2>24/7</h2>
+        <p>Support</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products">
+      <h2>Our Machines</h2>
+
+      <div class="grid">
+        <div class="card">
+          <img src="machine1.png" />
+          <h3>Multihead Machine</h3>
+          <a href="product.html" class="btn">Details</a>
+        </div>
+
+        <div class="card">
+          <img src="machine2.png" />
+          <h3>Single Head</h3>
+          <a href="product.html" class="btn">Details</a>
+        </div>
+
+        <div class="card">
+          <img src="machine3.png" />
+          <h3>Laser Machine</h3>
+          <a href="product.html" class="btn">Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service" class="service">
+      <h2>Our Services</h2>
+      <p>Installation | Maintenance | Repair | Training</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Start Your Business Today</h2>
+      <a href="#contact" class="btn">Contact Now</a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>Phone: +880 1700-000000</p>
+    </section>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/8801700000000" class="whatsapp">💬</a>
+
+    <!-- SCRIPT -->
+    <script>
+      let slides = document.querySelectorAll(".slide");
+      let current = 0;
+
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 4000);
+
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+      }
+    </script>
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Shinjin Bangladesh</h3>
+          <p>Importer & Supplier of Embroidery Machines.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="#">Home</a>
+          <a href="#products">Products</a>
+          <a href="#service">Service</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>Phone: +880 1700-000000</p>
+          <p>Email: info@shinjin.com</p>
+        </div>
+      </div>
+
+      <p class="footer-bottom">© 2026 Shinjin Bangladesh</p>
+    </footer>
+  </body>
+</html>

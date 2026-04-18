@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Details</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <img src="logo.png" class="logo" />
+      <a href="index.html" class="back-btn">← Back</a>
+    </header>
+
+    <!-- PRODUCT -->
+    <section class="product-page">
+      <div class="product-img">
+        <img src="machine1.png" id="mainImage" />
+      </div>
+
+      <div class="product-info">
+        <h1>Multihead Embroidery Machine</h1>
+        <p class="price">High Speed Industrial Machine</p>
+
+        <ul>
+          <li>✔ Multi-head system</li>
+          <li>✔ High production capacity</li>
+          <li>✔ Low maintenance</li>
+          <li>✔ Computerized control</li>
+        </ul>
+
+        <a href="https://wa.me/8801700000000" class="btn">Contact for Price</a>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <img src="machine1.png" onclick="changeImage(this)" />
+      <img src="machine2.png" onclick="changeImage(this)" />
+      <img src="machine3.png" onclick="changeImage(this)" />
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Shinjin Bangladesh</h3>
+          <p>Importer & Supplier of Embroidery Machines in Bangladesh.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#service">Service</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>Phone: +880 1700-000000</p>
+          <p>Email: info@shinjin.com</p>
+        </div>
+      </div>
+
+      <p class="footer-bottom">
+        © 2026 Shinjin Bangladesh. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      function changeImage(img) {
+        document.getElementById("mainImage").src = img.src;
+      }
+    </script>
+  </body>
+</html>
