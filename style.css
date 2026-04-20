@@ -9,69 +9,44 @@ body {
   background: #0a0a0a;
   color: white;
   scroll-behavior: smooth;
-  padding-top: 75px;
 }
 
 /* HEADER */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
+  top: 0;
   z-index: 1000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 18px 25px;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-  transition: 0.3s ease;
+  padding: 15px 25px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
 }
-/* SCROLL SMALL HEADER */
+
 header.shrink {
-  padding: 10px 25px;
+  padding: 8px 20px;
   background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
   height: 40px;
-  z-index: 2;
 }
+
 /* CENTER BRAND */
 .brand {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
-  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 3px;
-
-  background: linear-gradient(45deg, #38bdf8, #0ea5e9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: glow 2s infinite alternate;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: white;
 }
 
-,
-
-/* ANIMATION */
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #38bdf8;
-  }
-  to {
-    text-shadow: 0 0 20px #0ea5e9;
-  }
-}
-
+/* NAV */
 nav {
   display: flex;
   gap: 15px;
@@ -81,12 +56,29 @@ nav a {
   color: white;
   text-decoration: none;
   transition: 0.3s;
+  position: relative;
 }
 
 nav a:hover {
   color: #38bdf8;
 }
 
+/* ACTIVE LINK */
+nav a.active {
+  color: #38bdf8;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #38bdf8;
+}
+
+/* MENU TOGGLE */
 .menu-toggle {
   display: none;
   font-size: 26px;
@@ -167,6 +159,12 @@ nav a:hover {
   text-align: center;
 }
 
+/* ABOUT */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
 /* PRODUCTS */
 .products {
   padding: 60px 20px;
@@ -237,53 +235,6 @@ nav a:hover {
   font-size: 20px;
 }
 
-/* PRODUCT PAGE */
-.product-page {
-  display: flex;
-  gap: 40px;
-  padding: 120px 40px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.product-img img {
-  width: 400px;
-  max-width: 100%;
-  border-radius: 12px;
-}
-
-.product-info {
-  max-width: 500px;
-}
-
-.product-info ul {
-  margin: 20px 0;
-  padding-left: 20px;
-}
-
-.product-info li {
-  margin-bottom: 10px;
-}
-
-/* GALLERY */
-.gallery {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.gallery img {
-  width: 100px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.1);
-}
-
 /* FOOTER */
 footer {
   background: #000;
@@ -326,35 +277,64 @@ footer {
   padding-top: 10px;
 }
 
+/* FADE IN */
+.about,
+.products,
+.service,
+.contact,
+.stats {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
-  .brand {
-    font-size: 18px;
-  }
+
   nav {
     display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    width: 85%;
+    max-width: 300px;
+    padding: 30px 20px;
+    border-radius: 15px;
     flex-direction: column;
-    background: black;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
+    align-items: center;
+    gap: 20px;
+    z-index: 2000;
   }
 
   nav.show {
     display: flex;
   }
 
-  .overlay h1 {
-    font-size: 26px;
+  nav a {
+    font-size: 18px;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .product-page {
-    flex-direction: column;
-    text-align: center;
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  .overlay h1 {
+    font-size: 26px;
   }
 
   .btn {

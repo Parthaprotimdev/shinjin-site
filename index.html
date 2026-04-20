@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shinjin Bangladesh</title>
 
-    <!-- FONT -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -20,13 +18,13 @@
     <header>
       <img src="logo.png" class="logo" />
 
-      <!-- CENTER BRAND -->
       <div class="brand">SHINJIN</div>
 
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
       <nav id="menu">
         <a href="#">Home</a>
+        <a href="#about">About US</a>
         <a href="#products">Products</a>
         <a href="#service">Service</a>
         <a href="#contact">Contact</a>
@@ -72,6 +70,16 @@
         <h2>24/7</h2>
         <p>Support</p>
       </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>
+        We are a professional importer and supplier of industrial embroidery
+        machines in Bangladesh. Our mission is to deliver high-quality machines
+        and trusted service for your business growth.
+      </p>
     </section>
 
     <!-- PRODUCTS -->
@@ -149,6 +157,7 @@
 
     <!-- SCRIPT -->
     <script>
+      /* SLIDER */
       let slides = document.querySelectorAll(".slide");
       let current = 0;
 
@@ -158,24 +167,73 @@
         slides[current].classList.add("active");
       }, 4000);
 
+      /* MOBILE MENU */
       function toggleMenu() {
         document.getElementById("menu").classList.toggle("show");
       }
-      // HEADER
+
+      /* HEADER SHRINK */
       let header = document.querySelector("header");
-      let lastScroll = 0;
 
       window.addEventListener("scroll", () => {
-        let currentScroll = window.pageYOffset;
-
-        // shrink effect
-        if (currentScroll > 50) {
+        if (window.scrollY > 50) {
           header.classList.add("shrink");
         } else {
           header.classList.remove("shrink");
         }
+      });
 
-        lastScroll = currentScroll;
+      /* ACTIVE MENU */
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("#menu a");
+
+      window.addEventListener("scroll", () => {
+        let scrollPos = window.scrollY + 150;
+
+        sections.forEach((section) => {
+          let top = section.offsetTop;
+          let bottom = top + section.offsetHeight;
+          let id = section.getAttribute("id");
+
+          if (scrollPos >= top && scrollPos < bottom) {
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+
+              if (link.getAttribute("href") === "#" + id) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      });
+
+      /* AUTO CLOSE MENU */
+      document.querySelectorAll("#menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("menu").classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", function (e) {
+        const menu = document.getElementById("menu");
+        const toggle = document.querySelector(".menu-toggle");
+
+        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+          menu.classList.remove("show");
+        }
+      });
+
+      /* FADE IN */
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      sections.forEach((section) => {
+        observer.observe(section);
       });
     </script>
   </body>
