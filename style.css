@@ -9,13 +9,15 @@ body {
   background: #0a0a0a;
   color: white;
   scroll-behavior: smooth;
+  padding-top: 70px;
 }
 
 /* HEADER */
 header {
   position: fixed;
-  width: 100%;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
 
   display: flex;
@@ -23,10 +25,10 @@ header {
   align-items: center;
 
   padding: 15px 25px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
 
-  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .logo {
