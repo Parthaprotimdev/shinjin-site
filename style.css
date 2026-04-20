@@ -9,7 +9,7 @@ body {
   background: #0a0a0a;
   color: white;
   scroll-behavior: smooth;
-  padding-top: 70px;
+  padding-top: 75px;
 }
 
 /* HEADER */
@@ -24,11 +24,19 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  padding: 15px 25px;
-  background: rgba(0, 0, 0, 0.65);
+  padding: 18px 25px;
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.3s ease;
+}
+/* SCROLL SMALL HEADER */
+header.shrink {
+  padding: 10px 25px;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
