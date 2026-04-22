@@ -78,7 +78,8 @@
       <p>
         We are a professional importer and supplier of industrial embroidery
         machines in Bangladesh. Our mission is to deliver high-quality machines
-        and trusted service for your business growth.
+        and trusted service for your business growth. Huandong Industrial Zone,
+        Zhuji City, Zhejiang Province, China. admin@shinjincn.com
       </p>
     </section>
 
@@ -103,6 +104,57 @@
           <img src="machine3.png" />
           <h3>Laser Machine</h3>
           <a href="product.html" class="btn">Details</a>
+        </div>
+      </div>
+    </section>
+    <!-- PREMIUM GALLERY -->
+    <section id="gallery" class="premium-gallery">
+      <h2 class="gallery-title">Shinjin Gallery</h2>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="images/gallery1.jpg" alt="Shinjin Machine" />
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/gallery2.jpg" alt="Embroidery Machine" />
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/gallery3.jpg" alt="Factory Setup" />
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/gallery4.jpg" alt="Machine Installation" />
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/gallery5.jpg" alt="Production Work" />
+        </div>
+
+        <div class="gallery-card">
+          <img src="images/gallery6.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery7.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery8.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery9.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery10.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery11.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery12.jpg" alt="Shinjin Bangladesh" />
+        </div>
+        <div class="gallery-card">
+          <img src="images/gallery13.jpg" alt="Shinjin Bangladesh" />
         </div>
       </div>
     </section>
@@ -234,6 +286,38 @@
 
       sections.forEach((section) => {
         observer.observe(section);
+      });
+    </script>
+    <script>
+      /* ANIMATION ON SCROLL */
+      const galleryCards = document.querySelectorAll(".gallery-card");
+
+      const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      galleryCards.forEach((card) => {
+        galleryObserver.observe(card);
+      });
+
+      /* LIGHTBOX */
+      document.querySelectorAll(".gallery-card img").forEach((img) => {
+        img.addEventListener("click", () => {
+          const lightbox = document.createElement("div");
+          lightbox.classList.add("lightbox");
+
+          lightbox.innerHTML = `<img src="${img.src}">`;
+
+          lightbox.addEventListener("click", () => {
+            lightbox.remove();
+          });
+
+          document.body.appendChild(lightbox);
+        });
       });
     </script>
   </body>
