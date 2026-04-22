@@ -157,6 +157,9 @@
           <img src="images/gallery13.jpg" alt="Shinjin Bangladesh" />
         </div>
       </div>
+      <div class="gallery-controls">
+        <button id="showMoreBtn" class="btn">Show More</button>
+      </div>
     </section>
 
     <!-- SERVICE -->
@@ -287,9 +290,8 @@
       sections.forEach((section) => {
         observer.observe(section);
       });
-    </script>
-    <script>
-      /* ANIMATION ON SCROLL */
+
+      /* GALLERY ANIMATION */
       const galleryCards = document.querySelectorAll(".gallery-card");
 
       const galleryObserver = new IntersectionObserver((entries) => {
@@ -319,6 +321,50 @@
           document.body.appendChild(lightbox);
         });
       });
+
+      /* SHOW MORE (MOBILE) */
+      const galleryItems = document.querySelectorAll(".gallery-card");
+      const showMoreBtn = document.getElementById("showMoreBtn");
+
+      let expanded = false;
+
+      function setupGallery() {
+        if (window.innerWidth <= 768) {
+          galleryItems.forEach((item, index) => {
+            if (index > 2) {
+              item.classList.add("hidden");
+            }
+          });
+          showMoreBtn.style.display = "inline-block";
+        } else {
+          galleryItems.forEach((item) => item.classList.remove("hidden"));
+          showMoreBtn.style.display = "none";
+        }
+      }
+
+      setupGallery();
+
+      showMoreBtn.addEventListener("click", () => {
+        expanded = !expanded;
+
+        if (expanded) {
+          galleryItems.forEach((item) => item.classList.remove("hidden"));
+          showMoreBtn.textContent = "Show Less";
+        } else {
+          galleryItems.forEach((item, index) => {
+            if (index > 2) {
+              item.classList.add("hidden");
+            }
+          });
+          showMoreBtn.textContent = "Show More";
+
+          document.getElementById("gallery").scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      });
+
+      window.addEventListener("resize", setupGallery);
     </script>
   </body>
 </html>
