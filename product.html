@@ -22,7 +22,7 @@
     <!-- PRODUCT -->
     <section class="product-page">
       <div class="product-img">
-        <img src="machine1.png" id="mainImage" />
+        <img src="machine1.jpeg" id="mainImage" />
       </div>
 
       <div class="product-info">
@@ -36,13 +36,13 @@
           <li>✔ Computerized control</li>
         </ul>
 
-        <a href="https://wa.me/8801700000000" class="btn">Contact for Price</a>
+        <a href="https://wa.me/01774972716" class="btn">Contact for Price</a>
       </div>
     </section>
 
     <!-- GALLERY -->
     <section class="gallery">
-      <img src="machine1.png" onclick="changeImage(this)" />
+      <img src="machine1.jpeg" onclick="changeImage(this)" />
       <img src="machine2.png" onclick="changeImage(this)" />
       <img src="machine3.png" onclick="changeImage(this)" />
     </section>
@@ -65,7 +65,7 @@
 
         <div class="footer-col">
           <h3>Contact</h3>
-          <p>Phone: +880 1700-000000</p>
+          <p>Phone: +880 1774972716</p>
           <p>Email: info@shinjin.com</p>
         </div>
       </div>
@@ -80,6 +80,27 @@
       function changeImage(img) {
         document.getElementById("mainImage").src = img.src;
       }
+      // URL PARAMS (dynamic product)
+      const params = new URLSearchParams(window.location.search);
+
+      const img = params.get("img");
+      const title = params.get("title");
+
+      if (img) {
+        document.getElementById("mainImage").src = img;
+      }
+
+      if (title) {
+        document.getElementById("productTitle").innerText = title;
+      }
+
+      // WHATSAPP BUTTON AUTO LINK
+      const whatsappBtn = document.getElementById("whatsappBtn");
+      const productName = document.getElementById("productTitle").innerText;
+
+      whatsappBtn.href =
+        "https://wa.me/8801774972716?text=I want price for " +
+        encodeURIComponent(productName);
     </script>
   </body>
 </html>
